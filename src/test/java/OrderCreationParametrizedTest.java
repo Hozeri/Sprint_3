@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,8 +42,18 @@ public class OrderCreationParametrizedTest {
 
     @Test
     public void testOrderWithPartialDataCodeCreated() {
-        Order order = Order.getOrder();
-        order.setColor(color);
+        Faker faker = new Faker();
+        Order order = new Order.Builder()
+                .withFirstName(faker.name().firstName())
+                .withLastName(faker.name().lastName())
+                .withAddress(faker.address().streetAddress())
+                .withMetroStation("Seventh Avenue")
+                .withPhone(faker.phoneNumber().phoneNumber())
+                .withRentTime(10)
+                .withDeliveryDate("2023-01-01")
+                .withComment(faker.rickAndMorty().character())
+                .withColor(color)
+                .build();
         int trackId = orderClient.create(order)
                 .assertThat()
                 .statusCode(SC_CREATED)
