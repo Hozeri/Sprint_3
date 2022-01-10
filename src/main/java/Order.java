@@ -1,31 +1,76 @@
+import com.github.javafaker.Faker;
+
 import java.util.List;
 
 public class Order {
 
-    public String firstName;
-    public String lastName;
-    public String address;
-    public String metroStation;
-    public String phone;
-    public int rentTime;
-    public String deliveryDate;
-    public String comment;
-    public List<ScooterColor> color;
+    private String firstName;
+    private String lastName;
+    private String address;
+    private String metroStation;
+    private String phone;
+    private int rentTime;
+    private String deliveryDate;
+    private String comment;
+    private List<ScooterColor> color;
 
-    public Order(String firstName, String lastName, String address, String metroStation, String phone, int rentTime, String deliveryDate, String comment, List<ScooterColor> color) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.address = address;
-        this.metroStation = metroStation;
-        this.phone = phone;
-        this.rentTime = rentTime;
-        this.deliveryDate = deliveryDate;
-        this.comment = comment;
-        this.color = color;
-    }
+    public static class Builder {
 
-    public static Order getOrder() {
-        return new Order("Иван", "Иванов","Москва, Тверская улица, дом 7", "Тверская", "+7 925 777 77 77", 5, "2022-01-01", "Комментарий для курьера", null);
+        private final Order newOrder;
+
+        public Builder() {
+            newOrder = new Order();
+        }
+
+        public Builder withFirstName(String firstName) {
+            newOrder.firstName = firstName;
+            return this;
+        }
+
+        public Builder withLastName(String lastName) {
+            newOrder.lastName = lastName;
+            return this;
+        }
+
+        public Builder withAddress(String address) {
+            newOrder.address = address;
+            return this;
+        }
+
+        public Builder withMetroStation(String metroStation) {
+            newOrder.metroStation = metroStation;
+            return this;
+        }
+
+        public Builder withPhone(String phone) {
+            newOrder.phone = phone;
+            return this;
+        }
+
+        public Builder withRentTime(int rentTime) {
+            newOrder.rentTime = rentTime;
+            return this;
+        }
+
+        public Builder withDeliveryDate(String deliveryDate) {
+            newOrder.deliveryDate = deliveryDate;
+            return this;
+        }
+
+        public Builder withComment(String comment) {
+            newOrder.comment = comment;
+            return this;
+        }
+
+        public Builder withColor(List<ScooterColor> color) {
+            newOrder.color = color;
+            return this;
+        }
+
+        public Order build(){
+            return newOrder;
+        }
+
     }
 
     public void setColor(List<ScooterColor> color) {
