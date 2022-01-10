@@ -7,7 +7,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class CourierClient extends RestAssuredClient {
 
-    private static final String COURIER_PATH = "/api/v1/courier/";
+    private static final String COURIER_PATH = "/courier/";
 
     @Step
     public ValidatableResponse create(Courier courier) {

@@ -5,7 +5,7 @@ import static io.restassured.RestAssured.given;
 
 public class OrderClient extends RestAssuredClient {
 
-    private static final String COURIER_PATH = "/api/v1/orders/";
+    private static final String COURIER_PATH = "/orders/";
 
     @Step
     public ValidatableResponse create(Order order) {
