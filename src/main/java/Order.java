@@ -1,8 +1,42 @@
-import com.github.javafaker.Faker;
-
 import java.util.List;
 
 public class Order {
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getMetroStation() {
+        return metroStation;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public int getRentTime() {
+        return rentTime;
+    }
+
+    public String getDeliveryDate() {
+        return deliveryDate;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public List<ScooterColor> getColor() {
+        return color;
+    }
 
     private String firstName;
     private String lastName;
@@ -71,10 +105,6 @@ public class Order {
             return newOrder;
         }
 
-    }
-
-    public void setColor(List<ScooterColor> color) {
-        this.color = color;
     }
 
 }
